@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Wish Gameshow",
+  "description": "Pick a random product from wish.com",
+  "version": "0.1.0",
+  "author": "aef2662",
+  "permissions": ["activeTab", "tabs", "webNavigation"],
+  "host_permissions": ["https://*.wish.com/*"],
+  "content_scripts": [
+    {
+      "run_at": "document_idle",
+      "matches": ["https://*.wish.com/*"],
+      "css": ["styles.css"],
+      "js": ["remove.js", "content.js", "inject-scripts.js"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Wish Gameshow",
+    "default_icon": "prize.png"
+  }
+}
